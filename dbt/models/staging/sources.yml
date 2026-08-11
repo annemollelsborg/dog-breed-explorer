@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: raw_breeds
+        description: Raw breed records as fetched from thedogapi, one row per load per breed.

@@ -1,0 +1,1 @@
+{"_invocation_id": "c8084a21-6cca-4066-916f-768b5343db73", "linked": {"0": {"name": "source.dog_breed_explorer.raw.raw_breeds", "type": "source", "succ": [1]}, "1": {"name": "model.dog_breed_explorer.stg_breeds", "type": "model"}}}
