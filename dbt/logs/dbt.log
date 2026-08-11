@@ -589,3 +589,302 @@ alter view "dog_breeds"."main"."stg_breeds__dbt_tmp" rename to "stg_breeds"
 [0m11:19:26.337906 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10914a620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10986a5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10986a210>]}
 [0m11:19:26.338113 [debug] [MainThread]: Flushing usage events
 [0m11:19:27.025498 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:22:05.295793 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108358c20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1098a7250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1098a74d0>]}
+
+
+============================== 11:22:05.300176 | 0906daaa-6481-426a-b008-f9d49c833811 ==============================
+[0m11:22:05.300176 [info ] [MainThread]: Running with dbt=1.12.0
+[0m11:22:05.300551 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'static_parser': 'True', 'warn_error': 'None', 'maximum_seed_size_mib': '1', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'log_format': 'default', 'indirect_selection': 'eager', 'profiles_dir': '.', 'version_check': 'True', 'fail_fast': 'False', 'quiet': 'False', 'write_json': 'True', 'hints_enabled': 'True', 'debug': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'empty': 'False', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run --select stg_breeds stg_breed_temperaments --profiles-dir .', 'partial_parse': 'True', 'log_path': '/Users/ame/dog-breed-explorer/dbt/logs', 'use_colors': 'True', 'printer_width': '80'}
+[0m11:22:05.510043 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1087b9220>]}
+[0m11:22:05.541822 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10726d480>]}
+[0m11:22:05.543684 [info ] [MainThread]: Registered adapter: duckdb=1.11.0
+[0m11:22:05.592533 [debug] [MainThread]: checksum: 8ffe262bf327a10a75b27f7d63093abf78bdee43c0a7da6eb3e2575643f37827, vars: {}, profile: dog_breed_explorer, target: dev, version: 1.12.0
+[0m11:22:05.700358 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m11:22:05.700686 [debug] [MainThread]: Partial parsing: added file: dog_breed_explorer://models/staging/stg_breed_temperaments.sql
+[0m11:22:05.835067 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.dog_breed_explorer.marts
+- models.dog_breed_explorer.intermediate
+[0m11:22:05.837557 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f7c250>]}
+[0m11:22:05.885475 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ame/dog-breed-explorer/dbt/target/manifest.json
+[0m11:22:05.887295 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ame/dog-breed-explorer/dbt/target/semantic_manifest.json
+[0m11:22:05.899386 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/ame/dog-breed-explorer/dbt/target/osi_document.json
+[0m11:22:05.906366 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e05b80>]}
+[0m11:22:05.906643 [info ] [MainThread]: Found 2 models, 1 source, 500 macros
+[0m11:22:05.906824 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a01edd0>]}
+[0m11:22:05.907589 [info ] [MainThread]: 
+[0m11:22:05.907776 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m11:22:05.907919 [info ] [MainThread]: 
+[0m11:22:05.908170 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:22:05.910431 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_dog_breeds'
+[0m11:22:05.943342 [debug] [ThreadPool]: Using duckdb connection "list_dog_breeds"
+[0m11:22:05.943596 [debug] [ThreadPool]: On list_dog_breeds: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "connection_name": "list_dog_breeds"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"dog_breeds"'
+    
+  
+  
+[0m11:22:05.943765 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:22:05.962161 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m11:22:05.962982 [debug] [ThreadPool]: On list_dog_breeds: Close
+[0m11:22:05.963399 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dog_breeds, now create_dog_breeds_main)
+[0m11:22:05.963683 [debug] [ThreadPool]: Creating schema "database: "dog_breeds"
+schema: "main"
+"
+[0m11:22:05.967300 [debug] [ThreadPool]: Using duckdb connection "create_dog_breeds_main"
+[0m11:22:05.967497 [debug] [ThreadPool]: On create_dog_breeds_main: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "connection_name": "create_dog_breeds_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='dog_breeds'
+        and type != 'duckdb'
+    
+  
+[0m11:22:05.967649 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:22:05.968418 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m11:22:05.969304 [debug] [ThreadPool]: Using duckdb connection "create_dog_breeds_main"
+[0m11:22:05.969504 [debug] [ThreadPool]: On create_dog_breeds_main: BEGIN
+[0m11:22:05.969765 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:22:05.969924 [debug] [ThreadPool]: Using duckdb connection "create_dog_breeds_main"
+[0m11:22:05.970077 [debug] [ThreadPool]: On create_dog_breeds_main: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "connection_name": "create_dog_breeds_main"} */
+
+    
+    
+        create schema if not exists "dog_breeds"."main"
+    
+[0m11:22:05.970332 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:22:05.970775 [debug] [ThreadPool]: On create_dog_breeds_main: COMMIT
+[0m11:22:05.970939 [debug] [ThreadPool]: Using duckdb connection "create_dog_breeds_main"
+[0m11:22:05.971088 [debug] [ThreadPool]: On create_dog_breeds_main: COMMIT
+[0m11:22:05.971335 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:22:05.971509 [debug] [ThreadPool]: On create_dog_breeds_main: Close
+[0m11:22:05.972158 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_dog_breeds_main, now list_dog_breeds_main)
+[0m11:22:05.974636 [debug] [ThreadPool]: Using duckdb connection "list_dog_breeds_main"
+[0m11:22:05.974858 [debug] [ThreadPool]: On list_dog_breeds_main: BEGIN
+[0m11:22:05.975006 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:22:05.975376 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m11:22:05.975525 [debug] [ThreadPool]: Using duckdb connection "list_dog_breeds_main"
+[0m11:22:05.975678 [debug] [ThreadPool]: On list_dog_breeds_main: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "connection_name": "list_dog_breeds_main"} */
+select
+      'dog_breeds' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'dog_breeds'
+  
+[0m11:22:05.978468 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m11:22:05.979287 [debug] [ThreadPool]: On list_dog_breeds_main: ROLLBACK
+[0m11:22:05.979566 [debug] [ThreadPool]: On list_dog_breeds_main: Close
+[0m11:22:05.980012 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a23fad0>]}
+[0m11:22:05.980276 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:22:05.980439 [debug] [MainThread]: On master: BEGIN
+[0m11:22:05.980578 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:22:05.980839 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m11:22:05.980990 [debug] [MainThread]: On master: COMMIT
+[0m11:22:05.981133 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:22:05.981277 [debug] [MainThread]: On master: COMMIT
+[0m11:22:05.981521 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m11:22:05.981703 [debug] [MainThread]: On master: Close
+[0m11:22:05.983342 [debug] [Thread-1 (]: Began running node model.dog_breed_explorer.stg_breeds
+[0m11:22:05.983633 [info ] [Thread-1 (]: 1 of 2 START sql view model main.stg_breeds .................................... [RUN]
+[0m11:22:05.983880 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_dog_breeds_main, now model.dog_breed_explorer.stg_breeds)
+[0m11:22:05.984054 [debug] [Thread-1 (]: Began compiling node model.dog_breed_explorer.stg_breeds
+[0m11:22:05.987362 [debug] [Thread-1 (]: Writing injected SQL for node "model.dog_breed_explorer.stg_breeds"
+[0m11:22:05.987872 [debug] [Thread-1 (]: Began executing node model.dog_breed_explorer.stg_breeds
+[0m11:22:06.002212 [debug] [Thread-1 (]: Writing runtime sql for node "model.dog_breed_explorer.stg_breeds"
+[0m11:22:06.002883 [debug] [Thread-1 (]: Using duckdb connection "model.dog_breed_explorer.stg_breeds"
+[0m11:22:06.003091 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: BEGIN
+[0m11:22:06.003275 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:22:06.003673 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:22:06.003853 [debug] [Thread-1 (]: Using duckdb connection "model.dog_breed_explorer.stg_breeds"
+[0m11:22:06.004079 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "node_id": "model.dog_breed_explorer.stg_breeds"} */
+
+  
+  create view "dog_breeds"."main"."stg_breeds__dbt_tmp" as (
+    with latest_raw as (
+
+    select
+        breed_id,
+        raw_json,
+        loaded_at,
+        row_number() over (partition by breed_id order by loaded_at desc) as rn
+    from "dog_breeds"."raw"."raw_breeds"
+
+),
+
+deduped as (
+
+    select breed_id, raw_json, loaded_at
+    from latest_raw
+    where rn = 1
+
+),
+
+extracted as (
+
+    select
+        breed_id,
+        loaded_at,
+        json_extract_string(raw_json, '$.name') as name,
+        json_extract_string(raw_json, '$.breed_group') as breed_group,
+        json_extract_string(raw_json, '$.origin') as origin,
+        json_extract_string(raw_json, '$.bred_for') as bred_for,
+        json_extract_string(raw_json, '$.temperament') as temperament,
+        json_extract_string(raw_json, '$.life_span') as life_span_raw,
+        json_extract_string(raw_json, '$.weight.metric') as weight_metric_raw
+    from deduped
+
+)
+
+select
+    cast(breed_id as integer) as breed_id,
+    name,
+    breed_group,
+    origin,
+    bred_for,
+    temperament,
+
+    -- life_span arrives as e.g. "10-16" (years), sometimes null
+    cast(
+        list_min(list_transform(regexp_extract_all(life_span_raw, '[0-9]+'), x -> cast(x as integer)))
+        as integer
+    ) as life_span_min_years,
+    cast(
+        list_max(list_transform(regexp_extract_all(life_span_raw, '[0-9]+'), x -> cast(x as integer)))
+        as integer
+    ) as life_span_max_years,
+
+    -- weight.metric arrives as either "27-43" or gendered "Male: 25-30; Female: 20-25";
+    -- take the true min/max across all numbers found so the range covers the full breed
+    list_min(list_transform(regexp_extract_all(weight_metric_raw, '[0-9]+\.?[0-9]*'), x -> cast(x as double))) as weight_min_kg,
+    list_max(list_transform(regexp_extract_all(weight_metric_raw, '[0-9]+\.?[0-9]*'), x -> cast(x as double))) as weight_max_kg,
+
+    loaded_at
+from extracted
+  );
+
+[0m11:22:06.006547 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m11:22:06.009424 [debug] [Thread-1 (]: Using duckdb connection "model.dog_breed_explorer.stg_breeds"
+[0m11:22:06.009638 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "node_id": "model.dog_breed_explorer.stg_breeds"} */
+alter view "dog_breeds"."main"."stg_breeds" rename to "stg_breeds__dbt_backup"
+[0m11:22:06.010349 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:22:06.011343 [debug] [Thread-1 (]: Using duckdb connection "model.dog_breed_explorer.stg_breeds"
+[0m11:22:06.011518 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "node_id": "model.dog_breed_explorer.stg_breeds"} */
+alter view "dog_breeds"."main"."stg_breeds__dbt_tmp" rename to "stg_breeds"
+[0m11:22:06.011809 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:22:06.018630 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: COMMIT
+[0m11:22:06.018841 [debug] [Thread-1 (]: Using duckdb connection "model.dog_breed_explorer.stg_breeds"
+[0m11:22:06.019031 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: COMMIT
+[0m11:22:06.019928 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m11:22:06.022219 [debug] [Thread-1 (]: Using duckdb connection "model.dog_breed_explorer.stg_breeds"
+[0m11:22:06.022413 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "node_id": "model.dog_breed_explorer.stg_breeds"} */
+
+      drop view if exists "dog_breeds"."main"."stg_breeds__dbt_backup" cascade
+    
+[0m11:22:06.022835 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m11:22:06.024009 [debug] [Thread-1 (]: On model.dog_breed_explorer.stg_breeds: Close
+[0m11:22:06.025023 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a2a9550>]}
+[0m11:22:06.025357 [info ] [Thread-1 (]: 1 of 2 OK created sql view model main.stg_breeds ............................... [[32mOK[0m in 0.04s]
+[0m11:22:06.025640 [debug] [Thread-1 (]: Finished running node model.dog_breed_explorer.stg_breeds
+[0m11:22:06.026010 [debug] [Thread-2 (]: Began running node model.dog_breed_explorer.stg_breed_temperaments
+[0m11:22:06.026260 [info ] [Thread-2 (]: 2 of 2 START sql view model main.stg_breed_temperaments ........................ [RUN]
+[0m11:22:06.026527 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.dog_breed_explorer.stg_breed_temperaments'
+[0m11:22:06.026700 [debug] [Thread-2 (]: Began compiling node model.dog_breed_explorer.stg_breed_temperaments
+[0m11:22:06.027535 [debug] [Thread-2 (]: Writing injected SQL for node "model.dog_breed_explorer.stg_breed_temperaments"
+[0m11:22:06.028025 [debug] [Thread-2 (]: Began executing node model.dog_breed_explorer.stg_breed_temperaments
+[0m11:22:06.029291 [debug] [Thread-2 (]: Writing runtime sql for node "model.dog_breed_explorer.stg_breed_temperaments"
+[0m11:22:06.029752 [debug] [Thread-2 (]: Using duckdb connection "model.dog_breed_explorer.stg_breed_temperaments"
+[0m11:22:06.029930 [debug] [Thread-2 (]: On model.dog_breed_explorer.stg_breed_temperaments: BEGIN
+[0m11:22:06.030090 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m11:22:06.030399 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m11:22:06.030573 [debug] [Thread-2 (]: Using duckdb connection "model.dog_breed_explorer.stg_breed_temperaments"
+[0m11:22:06.030757 [debug] [Thread-2 (]: On model.dog_breed_explorer.stg_breed_temperaments: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "node_id": "model.dog_breed_explorer.stg_breed_temperaments"} */
+
+  
+  create view "dog_breeds"."main"."stg_breed_temperaments__dbt_tmp" as (
+    with base as (
+
+    select
+        breed_id,
+        name,
+        temperament
+    from "dog_breeds"."main"."stg_breeds"
+    where temperament is not null
+
+),
+
+split as (
+
+    select
+        breed_id,
+        name,
+        lower(trim(unnest(string_split(temperament, ',')))) as temperament_trait
+    from base
+
+)
+
+select
+    breed_id,
+    name,
+    temperament_trait
+from split
+where temperament_trait != ''
+  );
+
+[0m11:22:06.031654 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m11:22:06.032714 [debug] [Thread-2 (]: Using duckdb connection "model.dog_breed_explorer.stg_breed_temperaments"
+[0m11:22:06.032894 [debug] [Thread-2 (]: On model.dog_breed_explorer.stg_breed_temperaments: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "node_id": "model.dog_breed_explorer.stg_breed_temperaments"} */
+alter view "dog_breeds"."main"."stg_breed_temperaments__dbt_tmp" rename to "stg_breed_temperaments"
+[0m11:22:06.033190 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m11:22:06.033938 [debug] [Thread-2 (]: On model.dog_breed_explorer.stg_breed_temperaments: COMMIT
+[0m11:22:06.034112 [debug] [Thread-2 (]: Using duckdb connection "model.dog_breed_explorer.stg_breed_temperaments"
+[0m11:22:06.034268 [debug] [Thread-2 (]: On model.dog_breed_explorer.stg_breed_temperaments: COMMIT
+[0m11:22:06.034603 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m11:22:06.035270 [debug] [Thread-2 (]: Using duckdb connection "model.dog_breed_explorer.stg_breed_temperaments"
+[0m11:22:06.035439 [debug] [Thread-2 (]: On model.dog_breed_explorer.stg_breed_temperaments: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "dog_breed_explorer", "target_name": "dev", "node_id": "model.dog_breed_explorer.stg_breed_temperaments"} */
+
+      drop view if exists "dog_breeds"."main"."stg_breed_temperaments__dbt_backup" cascade
+    
+[0m11:22:06.035711 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m11:22:06.036429 [debug] [Thread-2 (]: On model.dog_breed_explorer.stg_breed_temperaments: Close
+[0m11:22:06.036739 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0906daaa-6481-426a-b008-f9d49c833811', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a04fb70>]}
+[0m11:22:06.037051 [info ] [Thread-2 (]: 2 of 2 OK created sql view model main.stg_breed_temperaments ................... [[32mOK[0m in 0.01s]
+[0m11:22:06.037312 [debug] [Thread-2 (]: Finished running node model.dog_breed_explorer.stg_breed_temperaments
+[0m11:22:06.037936 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:22:06.038097 [debug] [MainThread]: On master: BEGIN
+[0m11:22:06.038233 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:22:06.038494 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m11:22:06.038647 [debug] [MainThread]: On master: COMMIT
+[0m11:22:06.038788 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:22:06.038921 [debug] [MainThread]: On master: COMMIT
+[0m11:22:06.039121 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m11:22:06.039264 [debug] [MainThread]: On master: Close
+[0m11:22:06.039454 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:22:06.039588 [debug] [MainThread]: Connection 'model.dog_breed_explorer.stg_breeds' was properly closed.
+[0m11:22:06.039712 [debug] [MainThread]: Connection 'model.dog_breed_explorer.stg_breed_temperaments' was properly closed.
+[0m11:22:06.039879 [info ] [MainThread]: 
+[0m11:22:06.040035 [info ] [MainThread]: Finished running 2 view models in 0 hours 0 minutes and 0.13 seconds (0.13s).
+[0m11:22:06.040385 [debug] [MainThread]: Command end result
+[0m11:22:06.058691 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ame/dog-breed-explorer/dbt/target/manifest.json
+[0m11:22:06.060171 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ame/dog-breed-explorer/dbt/target/semantic_manifest.json
+[0m11:22:06.061391 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/ame/dog-breed-explorer/dbt/target/osi_document.json
+[0m11:22:06.064817 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ame/dog-breed-explorer/dbt/target/run_results.json
+[0m11:22:06.065002 [info ] [MainThread]: 
+[0m11:22:06.065201 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:22:06.065354 [info ] [MainThread]: 
+[0m11:22:06.065524 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=2
+[0m11:22:06.067636 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.8256119, "process_in_blocks": "0", "process_kernel_time": 0.257797, "process_mem_max_rss": "163545088", "process_out_blocks": "0", "process_user_time": 1.324824}
+[0m11:22:06.067889 [debug] [MainThread]: Command `dbt run` succeeded at 11:22:06.067849 after 0.83 seconds
+[0m11:22:06.068079 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a32c4b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a036f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108779250>]}
+[0m11:22:06.068260 [debug] [MainThread]: Flushing usage events
+[0m11:22:06.681732 [debug] [MainThread]: An error was encountered while trying to flush usage events
