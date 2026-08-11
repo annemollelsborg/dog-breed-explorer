@@ -30,8 +30,9 @@ def load_raw_breeds(breeds, con):
     loaded_at = datetime.now(timezone.utc)
     today = loaded_at.date()
 
+    con.execute("CREATE SCHEMA IF NOT EXISTS raw")
     con.execute("""
-        CREATE TABLE IF NOT EXISTS raw_breeds (
+        CREATE TABLE IF NOT EXISTS raw.raw_breeds (
             breed_id INTEGER,
             raw_json JSON,
             loaded_at TIMESTAMP
@@ -42,8 +43,8 @@ def load_raw_breeds(breeds, con):
 
     con.begin()
     try:
-        con.execute("DELETE FROM raw_breeds WHERE CAST(loaded_at AS DATE) = ?", [today])
-        con.executemany("INSERT INTO raw_breeds VALUES (?, ?, ?)", rows)
+        con.execute("DELETE FROM raw.raw_breeds WHERE CAST(loaded_at AS DATE) = ?", [today])
+        con.executemany("INSERT INTO raw.raw_breeds VALUES (?, ?, ?)", rows)
         con.commit()
     except Exception:
         con.rollback()
@@ -63,7 +64,7 @@ def main():
     row_count = load_raw_breeds(breeds, con)
     con.close()
 
-    print(f"Loaded {row_count} rows into raw_breeds")
+    print(f"Loaded {row_count} rows into raw.raw_breeds")
 
 
 if __name__ == "__main__":
