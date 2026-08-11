@@ -1,0 +1,13 @@
+dog_breed_explorer:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "../dog_breeds.duckdb"
+      schema: main
+      threads: 4
+    prod:
+      type: duckdb
+      path: "../dog_breeds_prod.duckdb"
+      schema: main
+      threads: 4

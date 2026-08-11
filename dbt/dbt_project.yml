@@ -1,0 +1,25 @@
+name: 'dog_breed_explorer'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dog_breed_explorer'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dog_breed_explorer:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
