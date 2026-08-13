@@ -20,6 +20,7 @@ ingestion/fetch_breeds.py  ->  raw.raw_breeds (DuckDB)
 - **Ingestion** pulls the full breed list, stores the raw JSON untouched with a `loaded_at` timestamp, and is idempotent — re-running it the same day replaces that day's rows instead of duplicating them.
 - **dbt** parses the messy `life_span` and `weight` text ranges into typed min/max/avg columns, splits the comma-separated `temperament` list into queryable rows, and derives a `size_class` (Small / Medium / Large) from average weight. `mart_dog_breeds` is the final one-row-per-breed table the dashboard reads from.
 - **Tests**: not-null and uniqueness on `breed_id`, not-null on `name`, plus a custom check that `life_span_min < life_span_max`.
+- **Docs**: run `dbt docs generate && dbt docs serve --profiles-dir .` from `dbt/` for a browsable site with descriptions.
 - **CI** (`.github/workflows/ci.yml`) runs ingestion, `dbt run`, and `dbt test` on every push and pull request. **Daily Pipeline** (`.github/workflows/daily_pipeline.yml`) runs the same sequence on a 02:00 UTC schedule to keep the data fresh.
 
 ## Running it locally
