@@ -5,6 +5,8 @@
 
 An end-to-end pipeline that pulls breed data from [TheDogAPI](https://www.thedogapi.com/), cleans and models it with dbt on DuckDB, and exposes it through a Streamlit dashboard. Runs daily via GitHub Actions.
 
+[Dashboard PDF export](dashboard/example.pdf) — a snapshot of the dashboard if you'd rather not run it locally.
+
 ## How it works
 
 ```

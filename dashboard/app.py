@@ -37,14 +37,21 @@ top10 = df.dropna(subset=["life_span_avg_years"]).nlargest(10, "life_span_avg_ye
 
 chart1 = (
     alt.Chart(top10)
-    .mark_bar(color="#2a78d6", cornerRadiusTopRight=4, cornerRadiusBottomRight=4)
+    .mark_bar(cornerRadiusTopRight=4, cornerRadiusBottomRight=4)
     .encode(
         x=alt.X("life_span_avg_years:Q", title="Average predicted life span (years)"),
         y=alt.Y("name:N", sort="-x", title=None),
+        color=alt.Color(
+            "size_class:N",
+            sort=SIZE_ORDER,
+            scale=alt.Scale(domain=SIZE_ORDER, range=SIZE_COLORS),
+            legend=alt.Legend(title="Size class"),
+        ),
         tooltip=[
             alt.Tooltip("name:N", title="Breed"),
             alt.Tooltip("life_span_avg_years:Q", title="Avg life span (yrs)"),
             alt.Tooltip("weight_avg_kg:Q", title="Avg weight (kg)"),
+            alt.Tooltip("size_class:N", title="Size class"),
         ],
     )
     .properties(height=380)
@@ -53,12 +60,15 @@ st.altair_chart(chart1, use_container_width=True)
 
 longest = top10.iloc[0]
 overall_avg = df["life_span_avg_years"].mean()
+top10_size_mix = top10["size_class"].value_counts().reindex(SIZE_ORDER).fillna(0).astype(int)
+size_mix_text = ", ".join(f"{count} {size}" for size, count in top10_size_mix.items() if count > 0)
 st.markdown(
     f"**{longest['name']}** tops the list at an average predicted life span of "
     f"**{longest['life_span_avg_years']:.1f} years**, against an overall average across "
     f"all {df['life_span_avg_years'].notna().sum()} breeds with life span data of "
-    f"**{overall_avg:.1f} years**. The top 10 skews toward small/toy breeds, consistent "
-    "with the well-documented inverse relationship between body size and canine longevity."
+    f"**{overall_avg:.1f} years**. The color coding shows size class doesn't cleanly "
+    f"predict a spot in this top 10 — the mix is {size_mix_text}, so being small isn't a "
+    "requirement for a long predicted life span in this dataset."
 )
 
 st.divider()
