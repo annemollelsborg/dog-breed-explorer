@@ -1,0 +1,11 @@
+.git/
+.venv/
+.env
+*.duckdb
+__pycache__/
+*.pyc
+.DS_Store
+notes/
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/

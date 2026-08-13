@@ -37,6 +37,19 @@ cd dbt && dbt run --profiles-dir . && dbt test --profiles-dir . && cd ..
 streamlit run dashboard/app.py
 ```
 
+### Or with Docker
+
+No local Python setup needed — `docker compose up` runs ingestion, `dbt run`, and `dbt test` inside the container, then serves the dashboard.
+
+```bash
+# add your TheDogAPI key (free at https://thedogapi.com/signup)
+echo "API_KEY=your_key_here" > .env
+
+docker compose up --build
+```
+
+Then open http://localhost:8501. `Ctrl+C` (or `docker compose down`) to stop it.
+
 ## What the data shows
 
 Across all 631 breeds, average predicted life span is **12.5 years**, but small and toy breeds dominate the top of the list — **Denmark Feist, Koolie, Miniature Fox Terrier, Rat Terrier and Silken Windhound** all average **15 years**, consistent with the well-documented inverse relationship between body size and canine longevity.
