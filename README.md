@@ -53,6 +53,10 @@ Then open http://localhost:8501. `Ctrl+C` (or `docker compose down`) to stop it.
 
 ## What the data shows
 
-Across all 631 breeds, average predicted life span is **12.5 years**, but small and toy breeds dominate the top of the list — **Denmark Feist, Koolie, Miniature Fox Terrier, Rat Terrier and Silken Windhound** all average **15 years**, consistent with the well-documented inverse relationship between body size and canine longevity.
+The data covers breed name, breed group, country of origin, temperament traits, life span (min/max/avg years), weight (min/max/avg kg), and a derived size class (Small/Medium/Large).
 
-By weight class, **Large breeds are the single biggest group (42%)**, followed by Medium (40%) and Small (19%) — the dataset leans toward bigger dogs overall, even though the *longest-lived* breeds skew small.
+Across all 631 breeds, average predicted life span is 12.5 years. There's a real but modest size-longevity gradient: Small breeds average 13.3 years, Medium 13.0, Large 11.8, though it's not a clean rule. The five longest-lived breeds (Denmark Feist, Koolie, Miniature Fox Terrier, Rat Terrier, Silken Windhound, all at 15 years) are a mix of Small, Medium, and even Large dogs.
+
+By weight class, Large breeds are the biggest group (42%), ahead of Medium (40%) and Small (19%).
+
+Temperament is the richest field, with 49 distinct traits recorded. Intelligent (85% of breeds), Loyal (72%), and Alert (60%) are by far the most common. "Friendly" ranks 8th, present in just 26% of breeds.
