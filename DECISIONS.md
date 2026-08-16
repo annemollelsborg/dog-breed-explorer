@@ -32,3 +32,7 @@ Tradeoff: GitHub's cron is best-effort, not exact (one run fired at 04:09 UTC in
 Tradeoff: runs locally (venv or `docker compose up`), not at a hosted URL, since the DuckDB file is a build artifact, not something committed. A PDF export is included instead. 
 
 Next: Host it live on Streamlit Community Cloud, once the daily pipeline can publish its DuckDB output somewhere the hosted app can read from.
+
+**LLM activity: Natural-language search.** Added a text-to-SQL box on the dashboard using Gemini 2.5 Flash: one call turns a plain-English question into a single `SELECT` against `mart_dog_breeds` (real schema and trait vocabulary passed in as context), a second call turns the resulting rows into a short, grounded answer. Guarded by a read-only DuckDB connection plus a check that the generated SQL is a single, non-destructive `SELECT`.
+
+Next: This should be improved by using an LLM combined with deterministic code to enrich the dataset itself and fix missing/wrong attributes, and by adding more robust error handling around the Gemini calls (timeouts, retries, rate-limit backoff) beyond the current bare try/except.

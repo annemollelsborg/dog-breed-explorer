@@ -22,6 +22,7 @@ ingestion/fetch_breeds.py  ->  raw.raw_breeds (DuckDB)
 - **Tests**: not-null and uniqueness on `breed_id`, not-null on `name`, plus a custom check that `life_span_min < life_span_max`.
 - **Docs**: run `dbt docs generate && dbt docs serve --profiles-dir .` from `dbt/` for a browsable site with descriptions.
 - **CI** (`.github/workflows/ci.yml`) runs ingestion, `dbt run`, and `dbt test` on every push and pull request. **Daily Pipeline** (`.github/workflows/daily_pipeline.yml`) runs the same sequence on a 02:00 UTC schedule to keep the data fresh.
+- **Natural-language search**: an "Ask a question" box on the dashboard lets you query the data in plain English (e.g. "show me calm dogs under 15 kg"). Gemini turns the question into a read-only SQL query, then turns the result into a short written answer. Requires a `GEMINI_API_KEY` — the rest of the dashboard works fine without it.
 
 ## Running it locally
 
@@ -31,6 +32,10 @@ pip install -r requirements.txt
 
 # add your TheDogAPI key (free at https://thedogapi.com/signup)
 echo "API_KEY=your_key_here" > .env
+
+# optional: add a Gemini key (free at https://aistudio.google.com/apikey) to enable
+# the dashboard's natural-language search
+echo "GEMINI_API_KEY=your_key_here" >> .env
 
 python ingestion/fetch_breeds.py
 cd dbt && dbt run --profiles-dir . && dbt test --profiles-dir . && cd ..
@@ -45,6 +50,10 @@ No local Python setup needed — `docker compose up` runs ingestion, `dbt run`, 
 ```bash
 # add your TheDogAPI key (free at https://thedogapi.com/signup)
 echo "API_KEY=your_key_here" > .env
+
+# optional: add a Gemini key (free at https://aistudio.google.com/apikey) to enable
+# the dashboard's natural-language search
+echo "GEMINI_API_KEY=your_key_here" >> .env
 
 docker compose up --build
 ```
