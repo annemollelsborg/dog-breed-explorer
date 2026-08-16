@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: int_breeds_enriched
+    description: One row per breed, with derived life span/weight averages and size class.
+    columns:
+      - name: breed_id
+        description: Unique identifier for the breed.
+      - name: name
+        description: Breed name.
+      - name: breed_group
+        description: Breed group, if known.
+      - name: origin
+        description: Country or region of origin, if known.
+      - name: bred_for
+        description: Original purpose the breed was bred for, if known.
+      - name: temperament
+        description: Comma-separated list of temperament traits.
+      - name: life_span_min_years
+        description: Lower bound of predicted life span, in years.
+      - name: life_span_max_years
+        description: Upper bound of predicted life span, in years.
+      - name: life_span_avg_years
+        description: Midpoint of the life span range.
+      - name: weight_min_kg
+        description: Lower bound of adult weight, in kg.
+      - name: weight_max_kg
+        description: Upper bound of adult weight, in kg.
+      - name: weight_avg_kg
+        description: Midpoint of the weight range.
+      - name: size_class
+        description: "Derived size bucket: Small (<10kg), Medium (10-25kg), or Large (25kg+)."
+      - name: loaded_at
+        description: Timestamp of the source ingestion run.

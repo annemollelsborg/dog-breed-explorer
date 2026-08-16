@@ -6,3 +6,10 @@ sources:
     tables:
       - name: raw_breeds
         description: Raw breed records as fetched from thedogapi, one row per load per breed.
+        columns:
+          - name: breed_id
+            description: Breed ID as returned by the API, prior to typing.
+          - name: raw_json
+            description: The full, untouched breed payload as returned by the API.
+          - name: loaded_at
+            description: Timestamp of the ingestion run that wrote this row.

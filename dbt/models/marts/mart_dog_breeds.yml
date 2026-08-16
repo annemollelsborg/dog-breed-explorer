@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: mart_dog_breeds
+    description: One row per breed — the final table the dashboard reads from.
+    columns:
+      - name: breed_id
+        description: Unique identifier for the breed.
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: Breed name.
+        tests:
+          - not_null
+      - name: breed_group
+        description: Breed group, if known.
+      - name: origin
+        description: Country or region of origin, if known.
+      - name: bred_for
+        description: Original purpose the breed was bred for, if known.
+      - name: temperament
+        description: Comma-separated list of temperament traits.
+      - name: life_span_min_years
+        description: Lower bound of predicted life span, in years.
+      - name: life_span_max_years
+        description: Upper bound of predicted life span, in years.
+      - name: life_span_avg_years
+        description: Midpoint of the life span range, rounded to 1 decimal.
+      - name: weight_min_kg
+        description: Lower bound of adult weight, in kg.
+      - name: weight_max_kg
+        description: Upper bound of adult weight, in kg.
+      - name: weight_avg_kg
+        description: Midpoint of the weight range, rounded to 1 decimal.
+      - name: size_class
+        description: "Derived size bucket: Small (<10kg), Medium (10-25kg), or Large (25kg+)."
+      - name: loaded_at
+        description: Timestamp of the source ingestion run.
+
+  - name: mart_temperament_frequency
+    description: One row per temperament trait, with how many breeds carry it.
+    columns:
+      - name: temperament_trait
+        description: A single temperament trait (lowercased).
+        tests:
+          - not_null
+          - unique
+      - name: breed_count
+        description: Number of breeds with this trait.
+      - name: pct_of_breeds
+        description: Share of all breeds with this trait, as a percentage.

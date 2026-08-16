@@ -19,6 +19,8 @@ Something to do differently: To host the dashboard live, I'd swap the local Duck
 
 Next: Extend error handling to catch poor-quality parsed values, not just structural problems. The temperament split currently lets a malformed sentence ("variable depending on ancestry and individual traits") through as if it were a real trait, and keeps near-synonyms (e.g. "energetic", "lively", "spirited") as separate values instead of merging them into one consistent category. Embeddings could be used to normalize the vocabulary and flag non-trait text.
 
+Next: As more mart tables are added, a semantic layer (dbt's own Semantic Layer/MetricFlow) would keep metric definitions like "average life span" or "size class" consistent across them instead of each user redefining their own.
+
 **Version control: GitHub.** Hosts the repository with a meaningful commit history. Keeps CI/CD and orchestration in the same place.
 
 **CI/CD: GitHub Actions.** Does the job, no extra services needed. Runs ingestion, dbt run, and dbt test on every push and pull request, pass/fail visible via a README badge.
@@ -35,4 +37,4 @@ Next: Host it live on Streamlit Community Cloud, once the daily pipeline can pub
 
 **LLM activity: Natural-language search.** Added a text-to-SQL box on the dashboard using Gemini 2.5 Flash: one call turns a plain-English question into a single `SELECT` against `mart_dog_breeds` (real schema and trait vocabulary passed in as context), a second call turns the resulting rows into a short, grounded answer. Guarded by a read-only DuckDB connection plus a check that the generated SQL is a single, non-destructive `SELECT`.
 
-Next: This should be improved by using an LLM combined with deterministic code to enrich the dataset itself and fix missing/wrong attributes, and by adding more robust error handling around the Gemini calls (timeouts, retries, rate-limit backoff) beyond the current bare try/except.
+Next: This should be improved by using an LLM combined with deterministic code to enrich the dataset itself and fix missing/wrong attributes, and by adding more robust error handling around the Gemini calls (timeouts, retries, rate-limit backoff) beyond the current bare try/except. A lightweight semantic layer (explicit column descriptions, allowed values, and a trait vocabulary) would also make the generated SQL more reliable.
